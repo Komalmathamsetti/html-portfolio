@@ -1,0 +1,99 @@
+<div class="filter-button-container">
+  <button id="openFilter" class="filter-trigger-btn">
+    <i class="fas fa-sliders"></i><span>Filter</span>
+  </button>
+</div>
+
+<div id="filterOverlay" class="hidden">
+  <div id="filterModal">
+    <button class="close-btn" id="closeFilter">&times;</button>
+    <div class="filter-container">
+      <label><strong>Check-in-Date:</strong></label>
+      <div class="date-in"><input type="date" placeHolder="dd-mm-yyyy" /></div>
+      <% const counters = ['Days', 'Bedrroms', 'Beds', 'Adults', 'Children']; %>
+      <%counters.forEach(label=>{ %>
+        <div class="filter-group">
+          <label><strong><%= label %>:</strong></label>
+          <div class="counter">
+            <button class="decrement">-</button>
+            <span class="value"><%= label === 'Adults' || label === 'Children' ? 0 : 1 %></span>
+            <button class = "increment">+</button>
+          </div>
+        </div>
+      <%})%>
+      <div class="filter-group">
+        <label><strong>Room Type:</strong></label>
+        <div class="room-type">
+          <button class="type-btn active">Any</button>
+          <button class="type-btn">Shared</button>
+          <button class="type-btn">Full</button>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label><strong>Price Range:</strong></label>
+        <input type="range" min="500" max="10000" step="100" value="5000" class="price-slider" />
+        <div class="price-labels">
+          <span>Min: ₹ 1000</span>
+          <span>Max: ₹ 10000</span>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label><strong>Type of House:</strong></label>
+        <div class="multi-options">
+          <% ['PG', 'House', 'Resort', 'Villa', 'Duplex', 'Cottage', 'Apartments', 'Hostels', 'Farm-house'].forEach(type=>{ %>
+            <button class="option-btn"><%= type %></button>
+         <% }) %>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label><strong>Room Location:</strong></label>
+        <div class="multi-options">
+          <% ['In Town', 'Outside of Town', 'NearBy villages', 'Residential Area', 'Commercial Area', 'Near highway', 'CountrySide'].forEach(loc=>{ %>
+            <button class="option-btn"><%= loc %></button>
+          <% }) %>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label><strong>Room near a Transport Station:</strong></label>
+        <div class="multi-options">
+          <% ['2 km', '5 km', '10 km'].forEach(opt=>{ %>
+            <button class="option-btn"><%= opt %></button>
+          <% }) %>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label><strong>Room size:</strong></label>
+        <div class="multi-options">
+          <% ['Any', 'Small', 'Medium', 'Large'].forEach(size=>{ %>
+            <button class="type-btn"><%= size %></button>
+         <% }) %>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label><strong>Amenities:</strong></label>
+        <div class="multi-options">
+          <% ['WiFi','AC','Laundry','Hot Water','Lift','Free Car Parking','EV Charging'].forEach(amenity => { %>
+            <button class="option-btn"><%= amenity %></button>
+          <% }) %>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label><strong>Host Gender:</strong></label>
+        <div class="multi-options">
+          <% ['Any', 'Male', 'Female', 'Family-friendly'].forEach(opt => { %>
+            <button class="type-btn"><%= opt %></button>
+          <% }) %>
+        </div>
+      </div>
+      <div class="filter-group">
+        <label><strong>Food Preferences:</strong></label>
+        <div class="multi-options">
+          <% ['Vegetarian','Non-Vegetarian'].forEach(opt => { %>
+            <button class="option-btn"><%= opt %></button>
+          <% }) %>
+        </div>
+      </div>
+      <button class="filter-search-btn">Search</button>
+    </div>
+  </div>
+</div>

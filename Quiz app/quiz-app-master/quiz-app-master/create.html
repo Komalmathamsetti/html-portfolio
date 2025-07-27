@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <title>QUIZ APP</title>
+  <link rel="stylesheet" href="teach.css" />
+  </head>
+
+  <body>
+    <div class="main">
+       <div id="set">
+       <div id="marks"><p>MARKS</p><input id="marks1" type="text" placeholder="Per Que"></div>
+       <div id="time"><p>TIME</P><input id="time1" type="text" placeholder="In Hours"></div>
+       <button id="addQue" onclick="addQue()">ADD QUE</button>
+       <button id="generateLink" onclick="generateQuizLink()">Generate Link</button>
+       </div>
+      <div class="queContainer">
+     <div class="queDiv" id="q1">
+         <h3>Question 1</h3>
+        <input id="que" type="text" placeholder="Type your Question here">
+        <div class="opt"><input id="opt1"type="text" placeholder="option 1">
+                           <input id="opt2"type="text" placeholder="option 2">
+                           <input id="opt3"type="text" placeholder="option 3">
+                           <input id="opt4"type="text" placeholder="option 4">
+        <button id="opt">correct answer</button></div>
+        <div id="last"><button id="save" onclick="saveQueBtn(this)">SAVE</button>
+        <button id="del" onclick="delBeforeSave(this)">DELETE</button></div>
+        </div></div>
+        <div id="quizLinkDisplay"></div>
+    </div>
+     <script src="teach.js"></script>
+  </body>

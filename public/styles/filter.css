@@ -1,0 +1,200 @@
+/* FILTER BUTTON (HOME PAGE) */
+.filter-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 30px 40px 20px 0;
+}
+
+.filter-trigger-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: white;
+  color: #e91e63;
+  border: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-trigger-btn i {
+  font-size: 18px;
+}
+
+.filter-trigger-btn:hover {
+  background-color: #fce4ec;
+}
+
+/* FILTER OVERLAY MODAL */
+#filterOverlay {
+  position: fixed;
+  inset: 0; /* shorthand for top:0; bottom:0; left:0; right:0 */
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 40px;
+  overflow: auto;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+
+#filterModal {
+  background-color: white;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 70vh; 
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  color: #333;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* FILTER CONTENT STYLES */
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding-top: 30px;
+}
+
+.filter-group label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+.date-in input[type="date"] {
+  width: 100%;
+  max-width: 250px;
+  padding: 8px;
+  font-size: medium;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: rgba(165, 165, 165, 0.2);
+  transition: border-color 0.3s ease-in-out;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.counter button {
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 8px 14px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.counter button:hover{
+  background-color:#d7276e;
+}
+
+.counter .value {
+  font-size: 18px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.room-type,
+.multi-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.type-btn,
+.option-btn {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.type-btn.active{
+  background-color: #e91e63;
+  color: white;
+  border-color: #e91e63;
+
+}
+.option-btn.active,
+.type-btn:hover,
+.option-btn:hover {
+  background-color: #68c55f;
+  color: white;
+  border-color: #68c55f;
+}
+
+/* PRICE SLIDER */
+.price-slider {
+  width: 100%;
+  accent-color: #e91e63;
+}
+
+.price-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #666;
+}
+
+/* SEARCH BUTTON */
+.filter-search-btn {
+  background-color: #6c6262;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100px;
+  margin: 20px auto 0 auto;
+}
+
+.filter-search-btn:hover {
+  background-color: #e91e63;
+}
+
+/* SCROLLBAR FOR MODAL */
+#filterModal::-webkit-scrollbar {
+  width: 8px;
+}
+
+#filterModal::-webkit-scrollbar-thumb {
+  background-color: #e91e63;
+  border-radius: 10px;
+}
+
+#filterModal::-webkit-scrollbar-track {
+  background: transparent;
+}

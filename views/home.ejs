@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ShelterSeek</title>
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="/styles/style.css" />
+  <link rel="stylesheet" href="/styles/filter.css"/>
+  <script src="/scripts/filter.js" defer></script> 
+
+  <!-- Leaflet & Font Awesome -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="top-bar">
+      <div class="logo">Shelter<span class="highlight">Seek</span></div>
+
+      <div class="search-bar">
+        <input type="text" placeholder="Where to go!" />
+        <button class="search-btn"><i class="fas fa-search"></i></button>
+      </div>
+
+      <nav class="nav-icons">
+        <a href="/about">About</a>
+        <a href="/wishlist"><i class="far fa-heart"></i></a>
+        <a href="/messages"><i class="fas fa-envelope"></i></a>
+        <a href="/profile"><i class="fas fa-user"></i></a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- Hero Section -->
+    <section class="hero-card">
+      <img id="hero-image" src="/images/photo2.png" alt="Main image" />
+      <div class="hero-text">
+        <h2>Welcome to ShelterSeek!</h2>
+        <p>
+          Discover your perfect travel destination with just a click. Explore, plan, and create unforgettable memories. Whether you're seeking adventure, relaxation, or cultural experiences, we've got something for every traveler. Join us on a journey that brings your dream getaway to life!
+        </p>
+      </div>
+    </section>
+
+    <!-- Filter -->
+    <!---<section class="filter">
+      <i class="fas fa-sliders"></i>
+      <span>Filter</span>
+    </section>--->
+    <%-include('partials/filter') %>
+
+    <!-- Featured Destinations -->
+    <section class="featured">
+      <h2>Featured Destinations</h2>
+      <div class="card-container">
+        <% properties.forEach(p => { %>
+          <div class="card">
+            <img src="<%= p.imageURL %>" alt="<%= p.name %>" />
+            <h3><%= p.name %></h3>
+            <p class="desc"><%= p.description %></p>
+            <button class="learn-btn">Learn More</button>
+          </div>
+        <% }) %>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+      <h2>What Our Users Say</h2>
+      <div class="testimonial-cards">
+        <% testimonials.forEach(t => { %>
+          <div class="testimonial-card">
+            <p>"<%= t.quote %>"</p>
+            <h4>- <%= t.name %></h4>
+          </div>
+        <% }) %>
+      </div>
+    </section>
+
+    <!-- Blog Posts -->
+    <section class="blog-posts">
+      <h2>Latest Blog Posts</h2>
+      <div class="blog-container">
+        <% blogPosts.forEach(post => { %>
+          <div class="blog-card">
+            <img src="<%= post.imageURL %>" alt="<%= post.title %>" />
+            <h3><%= post.title %></h3>
+            <p class="desc"><%= post.description%></p>
+            <a href="<%= post.link %>" class="read-btn">Read More</a>
+          </div>
+        <% }) %>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+      <h2>Explore Locations on Map</h2>
+      <div id="map" style="height: 400px;"></div>
+    </section>
+
+  </main>
+
+  <!-- Map Script -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script>
+    const properties = <%- JSON.stringify(properties).replace(/</g, '\\u003c') %>;
+
+    const map = L.map('map').setView([21.1466, 79.0888], 5);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> contributors | Powered by <a href="https://leafletjs.com/" target="_blank">Leaflet</a>'
+    }).addTo(map);
+
+    properties.forEach(p => {
+      if (p.coords && Array.isArray(p.coords) && p.coords.length === 2) {
+        L.marker(p.coords)
+          .addTo(map)
+          .bindPopup(`<b>${p.name}</b><br>${p.location}`);
+      }
+    });
+</script>
+<script>
+  const heroImages = [
+    "/images/photo1.png",
+    "/images/photo2.png",
+    "/images/photo3.png",
+    "/images/photo4.png"
+  ];
+  let currentImageIndex = 0;
+  const heroImageElement = document.getElementById("hero-image"); 
+
+  setInterval(() => {
+    currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+    heroImageElement.src = heroImages[currentImageIndex];
+  }, 3000);
+</script>
+<div class="help-icon" title="Need Help?">
+  <a href='/help_index'><i class="fas fa-comment-dots"></i></a>
+  <span>Help</span>
+</div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section about">
+        <h3>About Us</h3>
+        <p>We provide the best travel experiences with a wide range of accommodations to suit your needs. Explore the world with us!</p>
+      </div>
+      <div class="footer-section links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-section contact">
+        <h3>Contact Us</h3>
+        <p><i class="fas fa-map-marker-alt"></i> G04 IIIT Sri City, Chittor, India</p>
+        <p><i class="fas fa-phone"></i> +91-0123456789</p>
+        <p><i class="fas fa-envelope"></i> ShelterSeek@gmail.com</p>
+      </div>
+      <div class="footer-section social">
+        <h3>Follow Us</h3>
+        <p>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 ShelterSeek Website. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+  document.body.addEventListener('click', e => {
+    if (e.target.closest('.nav-icons a')) return;
+    window.location.href = '/signin';
+  });
+ </script>
+ 
+ 
+
+
+
+</body>
+</html>

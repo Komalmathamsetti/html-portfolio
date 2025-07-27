@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign in to ShelterSeek</title>
+  <link rel="stylesheet" href="/styles/style.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+<body class="signin-page">
+  <div class="signin-card">
+    <div class="signin-left">
+      
+      <img src="/images/photo2.png" alt="Luxury apartment">
+      <div class="signin-text">
+        <h1>Welcome to ShelterSeek</h1>
+        <p>
+          Your gateway to exceptional stays. Whether you’re a traveler seeking comfort
+          or a host ready to welcome guests, we’ve got you covered.
+        </p>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> Verified Properties</li>
+          <li><i class="fas fa-shield-alt"></i> Secure Booking</li>
+          <li><i class="fas fa-clock"></i> 24/7 Support</li>
+        </ul>
+      </div>
+    </div>
+    <div class="signin-right">
+      <h2>Sign in to ShelterSeek</h2>
+      <div class="account-options">
+        <button><i class="fas fa-user"></i> Traveler Account</button>
+        <button id="hostAccountBtn"><i class="fas fa-building"></i>Host Account</button>
+        <button><i class="fas fa-shield-alt"></i> Admin Portal</button>
+      </div>
+      <div class="create-account">
+        New to ShelterSeek? <a href="/signup"><i class="fas fa-user-plus"></i> Create an account</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById("hostAccountBtn").addEventListener("click",function(){
+      window.location.href = "/host_index";
+    });
+  </script>
+</body>
+</html>

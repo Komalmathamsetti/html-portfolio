@@ -1,0 +1,81 @@
+.major { display: flex;
+   justify-content: space-around;
+   margin-top: 20%;
+   width: 80%;
+   position: relative;
+   left:15%;
+   height: 400px;
+   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+   align-items: center;}
+
+div#create,div#join{ width: 40%;
+    height: 60px;}
+
+.major button{ width: 100%;
+    height: 100%;
+     text-align: center;
+     font-size: larger;
+     font-family:'Times New Roman', Times, serif;
+    border-radius: 50px;
+    color: rgb(188, 69, 202);}
+/* $$$$$$$$$ ended here for home page $$$$$$$$$*/
+.main{display: flex;}
+
+#set{display:flex;
+    flex-direction: column;
+    width: 20%;}
+
+div#set input{margin-top: 15px;
+    margin-left: 10px;
+    border-radius: 8px;
+    width:65px;
+    height: 20px; }
+
+#time,#marks{margin: 20px;
+    display: flex;
+    font-size: 18px;}
+
+.queContainer{display: flex;
+    flex-direction: column;
+    width: 100%;}
+.queContainer div{width: 50%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-around;
+    background-color: beige;}
+#que{ width: 75%;
+    height: 40px;
+    border-radius: 9px;
+    border-color: #49ab5b;}
+div.opt{display: flex;
+    height: 50%;
+    max-height: 60%;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: aliceblue;}
+
+.opt input{border-radius: 8px;
+    height: 22px;}
+
+button#opt{width: 70%;
+    height: 30px;
+    border-radius: 8px;
+    color: rgb(255, 255, 255);
+    background-color: black;}
+
+#last{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+button#save,button#del{
+    color: white;
+    width: 30%;
+    background-color: black;
+    border-radius: 7px;
+    height: 25px;
+}

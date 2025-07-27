@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Take Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .quiz-box {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #6c63ff;
+    }
+
+    .question {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    .options label {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #f3f4f6;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .options input {
+      margin-right: 10px;
+    }
+
+    .options label:hover {
+      background-color: #e2e6ea;
+    }
+
+    button {
+      background-color: #6c63ff;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #574fd6;
+    }
+
+    #resultContainer {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #2d3436;
+    }
+  </style>
+  </head>
+  <body>
+    <div class="quiz-box">
+      <h1>Take the Quiz</h1>
+      <div id="quizContainer"></div>
+      <button id="nextBtn" onClick = "nextQuestion()">Next</button>
+      <div id="resultContainer"></div>
+    </div>
+    <script>
+      let quizData = [];
+      let currentQ = 0;
+      let score=0;
+      let userAnswers = [];
+      function getParam(param){
+        const url = new URL(window.location.href);
+        return url.searchParams.getParam;
+      }
+      function loadQuiz(){
+        const quiId = getParams('id');
+        if(!quizId){
+          return showError("Missing quiz ID");
+        }
+        const data = localStorage.getItem(quizId);
+        if(!data) return showError("No quiz data");
+        quizData = JSON.parse(data);
+        if(!quizData.length) return showError("Empty Quiz");
+        showQuestion(currentQ);
+      }
+      function showError(msg) {
+        document.getElementById('quizContainer').innerHTML = `<p>${msg}</p>`;
+        document.getElementById('nextBtn').style.display = "none";
+      }
+      function showQuestion(index) {
+      const q = quizData[index];
+      const container = document.getElementById('quizContainer');
+      container.innerHTML = `
+        <div class="question">Q${index + 1}: ${q.q}</div>
+        <div class="options">
+          <label><input type="radio" name="ans" value="1"> ${q.opt1}</label>
+          <label><input type="radio" name="ans" value="2"> ${q.opt2}</label>
+          <label><input type="radio" name="ans" value="3"> ${q.opt3}</label>
+          <label><input type="radio" name="ans" value="4"> ${q.opt4}</label>
+        </div>
+      `;
+    }
+
+    function nextQuestion() {
+      const selected = document.querySelector('input[name="ans"]:checked');
+      if (!selected) {
+        alert("Please select an answer.");
+        return;
+      }
+
+      const selectedVal = parseInt(selected.value);
+      userAnswers.push(selectedVal);
+
+      if (selectedVal === quizData[currentQ].correct) {
+        score++;
+      }
+
+      currentQ++;
+
+      if (currentQ < quizData.length) {
+        showQuestion(currentQ);
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      document.getElementById('quizContainer').innerHTML = "";
+      document.getElementById('nextBtn').style.display = "none";
+
+      const total = quizData.length;
+      const percent = ((score / total) * 100).toFixed(2);
+      document.getElementById('resultContainer').innerHTML = `
+        <h2>Quiz Completed!</h2>
+        <p>Your Score: <strong>${score}</strong> out of <strong>${total}</strong></p>
+        <p>Percentage: <strong>${percent}%</strong></p>
+      `;
+    }
+
+    window.onload = loadQuiz;
+    </script>
+  </body>
+</html>

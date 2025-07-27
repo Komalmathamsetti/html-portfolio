@@ -1,0 +1,205 @@
+body{
+    font-family: 'Segoe UI', sans-serif;
+    padding: 0;
+    margin: 0;
+    background: #fff;
+}
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background-color: #d6d6d8;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #d63384;
+  white-space: nowrap;
+}
+
+.logo .highlight {
+  color: #d63384;
+}
+
+.search-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  background-color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 999px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 999px;
+  background: transparent;
+}
+
+.search-btn {
+  background-color: #ffd700;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn i {
+  font-size: 16px;
+  color: black;
+}
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-icons a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #000;
+}
+
+.nav-icons a i {
+  font-size: 20px;
+  color: #333;
+  transition: transform 0.2s ease;
+}
+.nav-icons a:hover{
+  color: #D72D6E;
+  transform: scale(1.1);
+}
+
+.nav-icons a:hover i {
+  transform: scale(1.1);
+  color: #D72D6E;
+}
+.help-container{
+    background-color: #f1f1f1;
+    margin: 40px auto;
+    padding: 40px;
+    width: 80%;
+    border-radius: 20px;
+    text-align: center;
+}
+.help-container h1{
+  color: #d63c7b;
+  margin-bottom: 30px;
+  font-size: 300%;
+}
+.faq-box{
+    display: flex;
+    flex-direction:column;
+    gap:15px;
+}
+.faq-item{
+    background: white;
+    border-radius: 20px;
+    padding: 15px 20px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    cursor: pointer;
+    text-align: left;
+}
+.faq-question{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.faq-answer{
+    display: none;
+    margin-top: 10px;
+    padding: 10px 5px;
+    font-size: 16px;
+    color: #333;
+}
+.more-help-button{
+    margin-top: 30px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: white;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  font-size: 16px;
+}
+.footer {
+  background-color: #222;
+  color: #fff;
+  padding: 40px 20px 10px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1 1 220px;
+  margin: 10px 20px;
+}
+
+.footer-section h3 {
+  color: #e91e63;
+  margin-bottom: 15px;
+}
+
+.footer-section p,
+.footer-section li {
+  color: #ccc;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section a {
+  color: #ccc;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.footer-section a:hover {
+  color: #D72D6E;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #444;
+  padding: 15px;
+  margin-top: 20px;
+  font-size: 13px;
+  color: #aaa;
+}
+
+.footer-section .social i {
+  font-size: 18px;
+  margin-right: 10px;
+  color: #ccc;
+}
+
+.footer-section .social i:hover {
+  color: #D72D6E;
+}

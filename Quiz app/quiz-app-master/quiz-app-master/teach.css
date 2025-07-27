@@ -1,0 +1,147 @@
+
+/* GENERAL PAGE STYLE */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #fefcea, #f1daff);
+  color: #333;
+}
+
+/* MAIN WRAPPER */
+.main {
+  display: flex;
+  padding: 30px;
+}
+
+/* SETTINGS PANEL (LEFT SIDE) */
+#set {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#set p {
+  margin: 0 0 5px 0;
+  font-weight: bold;
+}
+
+#set input {
+  width: 80%;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* BUTTONS */
+button {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  background-color: #6c63ff;
+  color: white;
+  font-weight: bold;
+  transition: 0.2s ease-in-out;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  background-color: #5548d9;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+/* QUESTION CONTAINER (RIGHT SIDE) */
+.queContainer {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-left: 20px;
+}
+
+/* INDIVIDUAL QUESTION BOX */
+.queDiv {
+  padding: 20px;
+  background-color: #fff;
+  border-left: 5px solid #6c63ff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.queDiv h3 {
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* QUESTION TEXTBOX */
+#que {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+  font-size: 16px;
+}
+
+/* OPTIONS */
+.opt {
+  background-color: #f3f4f6;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.opt input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+}
+
+/* CORRECT ANSWER BUTTON */
+button#opt {
+  background-color: #00b894;
+  width: 60%;
+  align-self: center;
+}
+
+button#opt:hover {
+  background-color: #019875;
+}
+
+/* SAVE / DELETE SECTION */
+#last {
+  display: flex;
+  justify-content: space-around;
+}
+
+button#save {
+  background-color: #2ecc71;
+}
+
+button#del {
+  background-color: #e74c3c;
+}
+
+#quizLinkDisplay {
+  margin-top: 30px;
+  padding: 10px;
+  font-weight: bold;
+  background: #f0eaff;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #c2b6ff;
+}
+
+#quizLinkDisplay a {
+  color: #6c63ff;
+  text-decoration: none;
+  font-weight: bold;
+}
